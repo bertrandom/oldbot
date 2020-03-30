@@ -1,0 +1,30 @@
+{
+  "name": "oldbot",
+  "version": "1.0.0",
+  "description": "A Slack App",
+  "main": "app.js",
+  "scripts": {
+    "pm2": "pm2 start ecosystem.config.js",
+    "ngrok": "ngrok http -bind-tls=true -subdomain=$npm_package_name 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bertrand Fan <bert@bert.org>",
+  "homepage": "https://github.com/bertrandom/oldbot/",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/events-api": "^2.1.1",
+    "@slack/web-api": "^5.8.0",
+    "body-parser": "^1.18.3",
+    "config": "^2.0.1",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "express-promise-router": "^3.0.3",
+    "knex": "^0.20.11",
+    "objection": "^2.1.3",
+    "recursive-iterator": "^3.3.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "sqlite3": "^4.1.1"
+  },
+  "repository": "bertrandom/oldbot"
+}
