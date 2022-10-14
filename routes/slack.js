@@ -41,6 +41,17 @@ router.get('/oauth', async (req, res) => {
 
 async function checkAndInsertLink(event, url) {
 
+    const parsedUrl = new URL(url);
+
+    if (parsedUrl.protocol != 'http:' && parsedUrl.protocol != 'https:') {
+        return;
+    }
+
+    if (parsedUrl.hostname.endsWith('.slack.com') && parsedUrl.pathname.startsWith('/archives')) {
+        console.log(`skipping ${url} because it looks like a Slack archive link`);
+        return;
+    }
+
     const link = await Link.query().findOne({
         "team_id": event.team,
         "channel_id": event.channel,
